@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
+"""
+Module to calculate the loss of a neural network prediction
+"""
 import tensorflow as tf
+
 
 def calculate_loss(y, y_pred):
     """
-    Calculates the softmax cross-entropy loss of a prediction.
-    
-    y: placeholder for the labels of the input data
-    y_pred: tensor containing the network's predictions (logits)
-    
-    Returns: a tensor containing the loss of the prediction
+    Calculates the softmax cross-entropy loss of a prediction
+
+    Args:
+        y: placeholder for the labels of the input data
+        y_pred: tensor containing the network's predictions
+
+    Returns:
+        A tensor containing the loss of the prediction
     """
-    # Calculate the cross entropy for each example
     loss = tf.losses.softmax_cross_entropy(onehot_labels=y, logits=y_pred)
-    
+
     return loss
